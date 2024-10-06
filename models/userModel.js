@@ -9,18 +9,18 @@ const getUserList = () =>{
     return JSON.parse(data)
 }
 // maps the data to use 
-const findUserAuth = (username,password) =>{
+const findUser = (username,password) =>{
     const user = getUserList()
     return user.find(user => user.username === username && user.password === password)
 }
 
-const UpdateUser = (users) =>{
+const UpdateUserList = (users) =>{
     console.log('Updating Users')
     fs.writeFileSync(path.join(__dirname, '../data/users.json'), JSON.stringify(users, null, 2));
 }
 
 module.exports = {
     getUserList,
-    findUserAuth,
-    UpdateUser
+    findUser,
+    UpdateUserList
 }

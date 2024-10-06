@@ -4,8 +4,8 @@ const jwt = require('jsonwebtoken')
 // login controller
 const userLogin = (req,res) =>{
     const{ username, password } = req.query;
-
-    const user = userModel.findUserAuth(username,password)
+    // looks for user in users
+    const user = userModel.findUser(username,password)
 
     if(user){
         const token = jwt.sign({id: user.id, username: user.username},'JWT_Token',{expiresIn: '1h'})
@@ -38,13 +38,13 @@ const userRegister = (req,res) =>{
     }
 
     users.push(newUser)
-    userModel.UpdateUser(users)
+    userModel.UpdateUserList(users)
     res.status(201).json({ message: 'User registered successfully', user: newUser });
 
 }
 // get user Profile
 const getProfile = (req, res) => {
-    // searches user by ID
+    // searches user by ID found in token
     const userId = req.user.id;
     const users = userModel.getUserList();
 
