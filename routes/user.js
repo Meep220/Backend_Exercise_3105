@@ -4,9 +4,10 @@ const {userLogin,userRegister,getProfile} = require('../controllers/userControll
 const authMiddleware = require('../middleware/authMiddleware')
 const rateLimitMiddleware = require('../middleware/rateLimitMiddleware')
 const logMiddleware = require('../middleware/logMiddleware')
+const authenticateUser = require('../middleware/authMiddleware')
 
 // route for profile
-router.get('/profile',rateLimitMiddleware,logMiddleware,getProfile)
+router.get('/profile',rateLimitMiddleware,logMiddleware,authenticateUser,getProfile)
 
 // route for login
 router.post('/login',rateLimitMiddleware,logMiddleware,userLogin)

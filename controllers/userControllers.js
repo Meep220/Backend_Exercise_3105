@@ -1,4 +1,5 @@
 const userModel = require('../models/userModel')
+const jwt = require('jsonwebtoken')
 
 // login controller
 const userLogin = (req,res) =>{
@@ -7,7 +8,8 @@ const userLogin = (req,res) =>{
     const user = userModel.findUserAuth(username,password)
 
     if(user){
-        res.status(200).json({message: 'Login Successful',user})
+        const token = jwt.sign({id: user.id, username: user.username},'JWT_Token',{expiresIn: '1h'})
+        return res.json({message: 'Login Successful', token})
     }else{
         return res.status(401).json({message: 'Invalid user or Password'})
     }
@@ -43,11 +45,11 @@ const userRegister = (req,res) =>{
 // get user Profile
 const getProfile = (req, res) => {
     // searches user by ID
-    const userId = req.query.id;  
+    const userId = req.user.id;
     const users = userModel.getUserList();
 
-    const user = users.find(user => String(user.id) === userId);
-
+    const user = users.find(user => user.id === userId);
+    // if the user was not found in database
     if (!user) {
         return res.status(404).json({ message: 'Profile Not Found' });
     }
