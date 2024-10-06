@@ -1,7 +1,7 @@
 const userModel = require('../models/userModel')
 
-// login method
-const login = (req,res) =>{
+// login controller
+const userLogin = (req,res) =>{
     const{ username, password } = req.query;
 
     const user = userModel.findUserAuth(username,password)
@@ -13,8 +13,8 @@ const login = (req,res) =>{
     }
     
 }
-
-const register = (req,res) =>{
+// register controller
+const userRegister = (req,res) =>{
     const {username,password,email} = req.query
     // checks if all the fields have been checked out
     if(!username || !password || !email){
@@ -40,8 +40,9 @@ const register = (req,res) =>{
     res.status(201).json({ message: 'User registered successfully', user: newUser });
 
 }
-
-const profile = (req, res) => {
+// get user Profile
+const getProfile = (req, res) => {
+    // searches user by ID
     const userId = req.query.id;  
     const users = userModel.getUserList();
 
@@ -55,7 +56,7 @@ const profile = (req, res) => {
 };
 
 module.exports = {
-    login,
-    register,
-    profile
+    userLogin,
+    userRegister,
+    getProfile
 }
