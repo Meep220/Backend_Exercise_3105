@@ -1,51 +1,20 @@
 [
-    {
-        "id": 1,
-        "username": "Jose",
-        "password": "12345",
-        "email": "test123@gmail.com" 
-    },
-    {
-        "id": 2,
-        "username": "Manso",
-        "password": "gey",
-        "email": "test123@gmail.com"
-        
-    },
-    {
-        "id": 3,
-        "username": "Manso",
-        "password": "gey",
-        "email": "test123@gmail.com"
-    },
-    {
-        "id": 4,
-        "username": "Manso",
-        "password": "gey",
-        "email": "test123@gmail.com"
-    },
-    {
-        "id": 5,
-        "username": "Manso",
-        "password": "gey",
-        "email": "test123@gmail.com"
-    },
-    {
-        "id": 6,
-        "username": "Manso",
-        "password": "gey",
-        "email": "test123@gmail.com"
-    },
-    {
-        "id": 7,
-        "username": "Manso",
-        "password": "gey",
-        "email": "test123@gmail.com"
-    },
-    {
-        "id": 8,
-        "username": "Manso",
-        "password": "gey",
-        "email": "test123@gmail.com"
-    }
+  {
+    "id": 1,
+    "username": "Jose",
+    "password": "12345",
+    "email": "test123@gmail.com"
+  },
+  {
+    "id": 2,
+    "username": "Manso",
+    "password": "gey",
+    "email": "test123@gmail.com"
+  },
+  {
+    "id": 3,
+    "username": "test",
+    "password": "123456",
+    "email": "test1234@gmail.com"
+  }
 ]

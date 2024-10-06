@@ -8,9 +8,7 @@ router.get('/profile',userController.profile)
 // route for login
 router.post('/login',userController.login)
 
-// route for register
-// app.post('/register',(req,res)=>{
-//     res.send("Register for user")
-// })
+//route for register
+router.post('/register',userController.register)
 
 module.exports = router

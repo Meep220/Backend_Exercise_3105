@@ -14,7 +14,13 @@ const findUserAuth = (username,password) =>{
     return user.find(user => user.username === username && user.password === password)
 }
 
+const UpdateUser = (users) =>{
+    console.log('Updating Users')
+    fs.writeFileSync(path.join(__dirname, '../data/users.json'), JSON.stringify(users, null, 2));
+}
+
 module.exports = {
     getUserList,
-    findUserAuth
+    findUserAuth,
+    UpdateUser
 }
